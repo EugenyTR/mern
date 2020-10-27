@@ -15,8 +15,8 @@ if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.join(__dirname, 'clients', 'build')));
 
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'clients', 'build', 'index.html'))
-    })
+      res.sendFile(path.resolve(__dirname, 'clients', 'build', 'index.html'));
+    });
 }
 
 const PORT = config.get('port') || 5000;
@@ -27,7 +27,7 @@ async function start() {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
-        })
+        });
         app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
     } catch (e) {
         console.log('Server Error', e.message);
@@ -35,4 +35,4 @@ async function start() {
     }
 }
 
-start()
+start();
